@@ -40,7 +40,7 @@ const each = function (collection, callback) {
   // }
 
   if (collection instanceof Array) {
-    for (i = 0; i < collection.length; i++) {
+    for (let i = 0; i < collection.length; i++) {
       callback(collection[i], i , collection);
     }
   }
@@ -57,7 +57,7 @@ const each = function (collection, callback) {
 const indexOf = function (array, target) {
   let answer = -1;
 
-  for (i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (array[i] === target) {
       answer = i;
       break;
@@ -70,12 +70,11 @@ const indexOf = function (array, target) {
 
 const map = function (collection, iterator) {
   let answer = [];
-
-  for (i = 0; i < collection.length; i++) {
-    answer.push(collection[i] * 2)
+  for (let i = 0; i < collection.length; i++) {
+    answer.push(iterator(collection[i]))
+    console.log(answer)
   }
-
-  return answer
+return answer
 };
 
 module.exports = {
